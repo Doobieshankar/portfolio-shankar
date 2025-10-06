@@ -2,16 +2,37 @@
 
 import dynamic from "next/dynamic";
 import React from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Dynamically import Globe to avoid SSR issues
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 
 const ThreeGlobe = () => {
+  const parentRef = useRef(null);
+  const [size, setSize] = useState({ width: 300, height: 300 });
+
+  useEffect(() => {
+    if (!parentRef.current) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width } = entry.contentRect;
+        setSize({
+          width: Math.min(width * 0.6, 600), // scale based on parent width
+          height: Math.min(width * 0.6, 600), // keep square shape
+        });
+      }
+    });
+
+    resizeObserver.observe(parentRef.current);
+    return () => resizeObserver.disconnect();
+  }, []);
+
   return (
-    <div className="w-[100%] h-screen bg-red-300 flex items-center justify-center overflow-hidden">
+    <div ref={parentRef} className="w-full flex justify-center bg-green-500">
       <Globe
-        height={326}
-        width={326}
+        width={size.width + 100}
+        height={size.height + 100}
         backgroundColor="rgba(0, 0, 0, 0)"
         backgroundImageOpacity={0.5}
         showAtmosphere

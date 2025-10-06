@@ -31,7 +31,7 @@ const ProjectsPage = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
+            transition={{ duration: 0.5, delay: i * 0.0005 }}
           >
             {/* Title */}
             <h2 className="text-2xl font-semibold mb-2 dark:text-white text-gray-950">
@@ -39,7 +39,7 @@ const ProjectsPage = () => {
             </h2>
 
             {/* Description */}
-            <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-3">
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
               {project.description}
             </p>
 

@@ -15,7 +15,7 @@ const ContactPage = () => {
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.5 }}
       >
         {contactData.heading}
       </motion.h1>
@@ -26,7 +26,7 @@ const ContactPage = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.7 }}
+        transition={{ duration: 0.5 }}
       >
         {contactData.description}
       </motion.p>
@@ -37,10 +37,10 @@ const ContactPage = () => {
           className="p-6 rounded-2xl shadow-lg border 
                      border-gray-300 dark:border-gray-700 
                      bg-white dark:bg-gray-950"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5 }}
         >
           <div className="mb-4">
             <label className="block text-sm mb-2 text-gray-800 dark:text-gray-200">
@@ -86,8 +86,7 @@ const ContactPage = () => {
 
           <button
             type="submit"
-            className="w-full py-2 px-4 rounded-lg bg-blue-600 text-white font-medium 
-                       hover:bg-blue-700 transition duration-300"
+            className="w-full py-2 px-4 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition duration-300"
           >
             Send Message
           </button>
@@ -99,7 +98,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.1 }}
+          transition={{ delay: 0.0001, duration: 0.1 }}
         >
           {contactData.socials.map((social, i) => (
             <a
@@ -128,7 +127,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.7 }}
+          transition={{ delay: 0.0001, duration: 0.1 }}
         >
           Or email me directly at{" "}
           <a
@@ -144,7 +143,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.7 }}
+          transition={{ delay: 0.0001, duration: 0.1 }}
         >
           Or call me directly at{" "}
           <a
