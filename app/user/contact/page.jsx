@@ -98,7 +98,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.0001, duration: 0.1 }}
+          transition={{ duration: 0.1 }}
         >
           {contactData.socials.map((social, i) => (
             <a
@@ -127,7 +127,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.0001, duration: 0.1 }}
+          transition={{ duration: 0.1 }}
         >
           Or email me directly at{" "}
           <a
@@ -143,7 +143,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.0001, duration: 0.1 }}
+          transition={{ duration: 0.1 }}
         >
           Or call me directly at{" "}
           <a

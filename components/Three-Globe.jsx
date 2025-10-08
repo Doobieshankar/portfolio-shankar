@@ -29,7 +29,7 @@ const ThreeGlobe = () => {
   }, []);
 
   return (
-    <div ref={parentRef} className="w-full flex justify-center bg-green-500">
+    <div ref={parentRef} className="w-full flex justify-center">
       <Globe
         width={size.width + 100}
         height={size.height + 100}
