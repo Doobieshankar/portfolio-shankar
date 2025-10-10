@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -92,6 +93,7 @@ export default function RootLayout({ children }) {
           <div className="mt-6">{children}</div>
           <Footer />
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

@@ -1,12 +1,59 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { contactData } from "@/data/contactData";
 import { LinkedinIcon } from "lucide-react";
 import { SiGithub, SiInstagram } from "@icons-pack/react-simple-icons";
+import emailjs from "@emailjs/browser";
+
+import { toast } from "sonner";
 
 const ContactPage = () => {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = ({ target: { name, value } }) => {
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      console.log(form);
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "shankar",
+          from_email: form.email,
+          to_email: "shanks@raone.com",
+          message: form.message,
+        },
+        process.env.NEXT_PUBLIC_KEY
+      );
+      setLoading(false);
+      toast("your message has been sent", {
+        description: "Message sent successfully",
+        action: {
+          label: "Ok",
+          onClick: () => console.log("cool I got the mail from you dude!"),
+        },
+      });
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.log(error);
+      alert("something went wrong");
+    }
+  };
+
   return (
     <div id="contact" className="pt-16 px-4 md:px-12">
       {/* Heading */}
@@ -41,6 +88,8 @@ const ContactPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          ref={formRef}
+          onSubmit={handleSubmit}
         >
           <div className="mb-4">
             <label className="block text-sm mb-2 text-gray-800 dark:text-gray-200">
@@ -48,11 +97,15 @@ const ContactPage = () => {
             </label>
             <input
               type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
               placeholder="Your name"
               className="w-full px-4 py-2 rounded-lg border 
                          border-gray-300 dark:border-gray-700 
                          bg-gray-50 dark:bg-gray-800 
                          text-gray-900 dark:text-gray-100"
+              required
             />
           </div>
 
@@ -62,11 +115,15 @@ const ContactPage = () => {
             </label>
             <input
               type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
               placeholder="you@example.com"
               className="w-full px-4 py-2 rounded-lg border 
                          border-gray-300 dark:border-gray-700 
                          bg-gray-50 dark:bg-gray-800 
                          text-gray-900 dark:text-gray-100"
+              required
             />
           </div>
 
@@ -75,12 +132,16 @@ const ContactPage = () => {
               Message
             </label>
             <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
               placeholder="Write your message..."
               rows={4}
               className="w-full px-4 py-2 rounded-lg border 
                          border-gray-300 dark:border-gray-700 
                          bg-gray-50 dark:bg-gray-800 
                          text-gray-900 dark:text-gray-100"
+              required
             ></textarea>
           </div>
 
