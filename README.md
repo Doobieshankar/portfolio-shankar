@@ -4,7 +4,7 @@ A 3D interactive portfolio built with **Next.js**, **Three.js**, and **Ready Pla
 
 ## 🚀 Preview
 
-![Portfolio Preview](https://shankar-portfolio.vercel.app/preview.png)
+![Portfolio Preview](https://portfolio-shankar.vercel.app/preview.png)
 
 ## 🧩 Features
 
@@ -24,4 +24,4 @@ A 3D interactive portfolio built with **Next.js**, **Three.js**, and **Ready Pla
 
 ## 📸 Demo Link
 
-👉 [Visit Live Site](https://shankar-portfolio.vercel.app)
+👉 [Visit Live Site](https://portfolio-shankar.vercel.app)

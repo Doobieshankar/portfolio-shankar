@@ -43,11 +43,11 @@ export const metadata = {
     title: "Shankar D | Full Stack Developer Portfolio",
     description:
       "Explore my portfolio showcasing projects in React, Next.js, Django, and more. Let's build scalable and interactive web applications together.",
-    url: "https://shankar-portfolio.vercel.app", // replace with your domain
+    url: "https://portfolio-shankar.vercel.app", // replace with your domain
     siteName: "Shankar Portfolio",
     images: [
       {
-        url: "https://shankar-portfolio.vercel.app/preview.png", // add your preview image
+        url: "https://portfolio-shankar.vercel.app/preview.png", // add your preview image
         width: 1200,
         height: 630,
         alt: "Shankar D Portfolio",
@@ -61,7 +61,7 @@ export const metadata = {
     title: "Shankar D | Full Stack Developer",
     description:
       "Portfolio of Shankar D, showcasing projects in React, Next.js, Django, and modern web technologies.",
-    images: ["https://shankar-portfolio.vercel.app/preview.png"], // same preview image
+    images: ["https://portfolio-shankar.vercel.app/preview.png"], // same preview image
   },
   icons: {
     icon: "/favicon.ico",
